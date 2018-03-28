@@ -6,7 +6,7 @@
 /*   By: thbernar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/29 15:04:48 by thbernar          #+#    #+#             */
-/*   Updated: 2018/03/26 18:10:24 by thbernar         ###   ########.fr       */
+/*   Updated: 2018/03/28 22:44:05 by thbernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,16 @@ int		ft_abs(int nb)
 		return (-nb);
 	else
 		return (nb);
+}
+void	ft_free_strsplit(char **array)
+{
+	int i;
+
+	i = 0;
+	while (array	[i])
+	{
+		free(array[i]);
+		i++;
+	}
+	free(array);
 }

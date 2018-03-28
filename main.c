@@ -6,7 +6,7 @@
 /*   By: thbernar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/16 11:54:23 by thbernar          #+#    #+#             */
-/*   Updated: 2018/03/26 18:47:51 by thbernar         ###   ########.fr       */
+/*   Updated: 2018/03/28 22:36:50 by thbernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int	ft_hook(int x, int y, t_app *app)
 	return (0);
 }
 
-int	main()
+int	main(void)
 {
 	t_app	app;
 
@@ -53,7 +53,6 @@ int	main()
 	app.mlx = mlx_init();
 	app.win = mlx_new_window(app.mlx, app.winsize.x, app.winsize.y, "Wolf3D");
 	ft_win_draw(&app);
-	//ft_printcontrols();
 	mlx_key_hook(app.win, ft_keyhooked, &app);
 	mlx_mouse_hook(app.win, ft_mousehooked, &app);
 	mlx_hook(app.win, 6, (1L << 6), ft_hook, &app);

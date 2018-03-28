@@ -6,7 +6,7 @@
 /*   By: thbernar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/26 17:11:44 by thbernar          #+#    #+#             */
-/*   Updated: 2018/03/26 19:38:32 by thbernar         ###   ########.fr       */
+/*   Updated: 2018/03/28 22:44:25 by thbernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,6 @@ typedef struct	s_coord_d
 	double		y;
 }				t_coord_d;
 
-typedef struct	s_complex
-{
-	double		i;
-	double		r;
-}				t_complex;
-
 typedef struct	s_app
 {
 	void		*mlx;
@@ -48,6 +42,7 @@ typedef struct	s_app
 	double		vector;
 	t_coord		pos;
 	t_coord		mouse;
+	t_coord		map_size;
 	int			**map;
 }				t_app;
 
@@ -61,7 +56,9 @@ void			ft_img_putpixel(t_app *app, t_coord p, int *color);
 void			ft_calc_color(t_app *app, t_coord p);
 
 void			ft_app_init(t_app *app);
+void			ft_app_countmap(t_app *app);
 void			ft_app_allocmap(t_app *app);
+void			ft_app_writemap(t_app *app);
 
 void			ft_printcontrols(void);
 void			ft_error(char *s);
@@ -69,5 +66,6 @@ void			ft_pickcolors(t_app *app, int *color, int i);
 
 double			ft_abs_d(double nb);
 int				ft_abs(int nb);
+void			ft_free_strsplit(char **array);
 
 #endif
