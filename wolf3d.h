@@ -6,7 +6,7 @@
 /*   By: thbernar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/26 17:11:44 by thbernar          #+#    #+#             */
-/*   Updated: 2018/03/28 22:44:25 by thbernar         ###   ########.fr       */
+/*   Updated: 2018/10/10 18:51:11 by thbernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,9 @@ typedef struct	s_app
 	char		*fname;
 	t_coord		winsize;
 	char		*img_data;
-	double		vector;
-	t_coord		pos;
+	t_coord_d	pos;
+	int			fov;
+	int			player_size;
 	t_coord		mouse;
 	t_coord		map_size;
 	int			**map;
@@ -59,6 +60,8 @@ void			ft_app_init(t_app *app);
 void			ft_app_countmap(t_app *app);
 void			ft_app_allocmap(t_app *app);
 void			ft_app_writemap(t_app *app);
+void			ft_app_calcplayerpos(t_app *app);
+void			ft_app_printmap(t_app *app);
 
 void			ft_printcontrols(void);
 void			ft_error(char *s);
