@@ -6,7 +6,7 @@
 /*   By: thbernar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/16 11:54:23 by thbernar          #+#    #+#             */
-/*   Updated: 2018/10/12 20:29:06 by thbernar         ###   ########.fr       */
+/*   Updated: 2018/10/12 22:34:28 by thbernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@ int	ft_keyhooked(int keycode, t_app *app)
 {
 	if (keycode == 53)
 		exit(0);
-	/*if (keycode == 123)
-		app->pos.x = app->pos.x - 30;
+	if (keycode == 123)
+		app->pos.x = app->pos.x - 4;
 	if (keycode == 124)
-		app->pos.x = app->pos.x + 30;*/
+		app->pos.x = app->pos.x + 4;
 	if (keycode == 125)
 		app->pos.y = app->pos.y + 4;
 	if (keycode == 126)

@@ -6,7 +6,7 @@
 /*   By: thbernar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/11 17:30:54 by thbernar          #+#    #+#             */
-/*   Updated: 2018/10/12 21:20:16 by thbernar         ###   ########.fr       */
+/*   Updated: 2018/10/12 22:43:20 by thbernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	ft_raycasting(t_app *app, int x) // CALL RAYCASTING
 	printf("(%lf, %lf)\n", app->pos.x / 64, app->pos.y / 64);
 	int color[3];
 	int distance_player_projscreen = (app->winsize.x / 2) / tan(0.52);
-	//int angle_between_rays = app->fov / app->winsize.x;
+	double  angle_between_rays = (double)app->fov / (double)app->winsize.x;
 	t_coord A;
 	t_coord B;
 	int Ya = -64;
@@ -59,19 +59,20 @@ void	ft_raycasting(t_app *app, int x) // CALL RAYCASTING
 	A.y = (int)(app->pos.y / 64) * 64 - 1;
 	A.x = app->pos.x + (app->pos.y - A.y) / tan(1.04);
 	if (x < app->winsize.x / 2)
-		B.y = (int)(app->pos.x / 64) * 64 - 1;
+		B.x = (int)(app->pos.x / 64) * 64 - 1;
 	else
-		B.y = (int)(app->pos.x / 64) * 64 + 64;
+		B.x = (int)(app->pos.x / 64) * 64 + 64;
+	B.y = app->pos.y + (app->pos.x - B.x) * tan(1.04);
 	while (app->map[A.x / 64][A.y / 64] == 0) // HORIZONTAL
 	{
 		A.x = A.x + Xa;
 		A.y = A.y + Ya;
 	}
-	/*while (app->map[B.x / 64][B.y / 64] == 0) // VERTICAL
+	while (app->map[B.x / 64][B.y / 64] == 0) // VERTICAL
 	{
 		B.x = B.x + Xa;
 		B.y = B.y + Ya;
-	}*/
+	}
 	PA = sqrt((app->pos.x - A.x) * (app->pos.x - A.x) + (app->pos.y - A.y) * (app->pos.y - A.y));
 	PB = sqrt((app->pos.x - B.x) * (app->pos.x - B.x) + (app->pos.y - B.y) * (app->pos.y - B.y));
 	if (PA < PB)
@@ -79,8 +80,8 @@ void	ft_raycasting(t_app *app, int x) // CALL RAYCASTING
 	else
 		wall_height = 64 * distance_player_projscreen / PB;
 
-	printf("PA = %d, DPS = %d, wall = %d\n", PA, distance_player_projscreen, wall_height);
-	printf("By = %d, DPS = %d, wall = %d\n", B.y, distance_player_projscreen, wall_height);
+	printf("PA = %d, DPS = %d, wall = %d\n, angle = %lf", PA, distance_player_projscreen, wall_height, angle_between_rays);
+	printf("PB = %d, DPS = %d, wall = %d\n", PB, distance_player_projscreen, wall_height);
 	color[0] = 0;
 	color[1] = 255;
 	color[2] = 0;
