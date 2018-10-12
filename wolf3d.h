@@ -6,7 +6,7 @@
 /*   By: thbernar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/26 17:11:44 by thbernar          #+#    #+#             */
-/*   Updated: 2018/10/10 18:51:11 by thbernar         ###   ########.fr       */
+/*   Updated: 2018/10/12 21:11:04 by thbernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ typedef struct	s_app
 	t_coord_d	pos;
 	int			fov;
 	int			player_size;
+	int			protation;
 	t_coord		mouse;
 	t_coord		map_size;
 	int			**map;
@@ -54,7 +55,7 @@ int				ft_hook(int x, int y, t_app *app);
 
 void			ft_win_draw(t_app *app);
 void			ft_img_putpixel(t_app *app, t_coord p, int *color);
-void			ft_calc_color(t_app *app, t_coord p);
+void			ft_raycasting(t_app *app, int x);
 
 void			ft_app_init(t_app *app);
 void			ft_app_countmap(t_app *app);

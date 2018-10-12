@@ -6,7 +6,7 @@
 /*   By: thbernar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/11 18:43:12 by thbernar          #+#    #+#             */
-/*   Updated: 2018/10/10 20:37:00 by thbernar         ###   ########.fr       */
+/*   Updated: 2018/10/12 20:20:04 by thbernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,8 +109,8 @@ void	ft_app_calcplayerpos(t_app *app)
 		{
 			if (app->map[p.x][p.y] == 9)
 			{
-				app->pos.x = (double)p.y + 0.5;
-				app->pos.y = (double)p.x + 0.5;
+				app->pos.x = (((double)p.y + 0.5) * 64);
+				app->pos.y = (((double)p.x + 0.5) * 64);
 				return;
 			}
 			p.x++;

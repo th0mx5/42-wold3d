@@ -6,7 +6,7 @@
 /*   By: thbernar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/16 11:54:23 by thbernar          #+#    #+#             */
-/*   Updated: 2018/10/10 18:25:06 by thbernar         ###   ########.fr       */
+/*   Updated: 2018/10/12 20:29:06 by thbernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ int	ft_keyhooked(int keycode, t_app *app)
 	if (keycode == 124)
 		app->pos.x = app->pos.x + 30;*/
 	if (keycode == 125)
-		app->pos.y = app->pos.y + 0.25;
+		app->pos.y = app->pos.y + 4;
 	if (keycode == 126)
-		app->pos.y = app->pos.y - 0.25;
+		app->pos.y = app->pos.y - 4;
 	printf("(%lf, %lf)\n", app->pos.x, app->pos.y);
 	ft_win_draw(app);
 	return (0);
